@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" [(ngModel)]="st" />
+    <table border="1">
+      <tr>
+        <th colspan="4">EMPLOYEE</th>
+      </tr>
+      <tr>
+        <td>Name</td>
+        <td>ID</td>
+        <td>City</td>
+        <td>Delete</td>
+      </tr>
+      <tr *ngFor="let e of empser.employee | search: st">
+        <td>{{ e.name | uppercase }}</td>
+        <td>{{ e.id }}</td>
+        <td>{{ e.city | uppercase }}</td>
+        <td (click)="empser.removeEmp(e.id)">Delete</td>
+      </tr>
+    </table>
+
+    Name : <input type="text" [(ngModel)]="empser.name" /> City :
+    <input type="text" [(ngModel)]="empser.city" /> Id :
+    <input type="number" [(ngModel)]="empser.id" />
+
+    <button (click)="empser.addEmp()">Add Employee</button>
+  </body>
+</html>
+
+<p>{{ name }}</p>
+
+<button (click)="sendData()">Event Emmiter</button>
+
+{{ dt | date: 'full' }}
+
+<br />
+
+{{ h | percent }}
+
+{{ fullName | slice: 1 : 5 }}
+
+<!--  -->

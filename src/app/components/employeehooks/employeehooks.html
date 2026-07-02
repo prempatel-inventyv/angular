@@ -1,0 +1,7 @@
+<app-employeeservice
+  *ngIf="show === true"
+  [name]="username"
+  (notify)="showMsg()"
+></app-employeeservice>
+<button (click)="changeName()">Change Name</button>
+<button (click)="show = !show">Show Component</button>
