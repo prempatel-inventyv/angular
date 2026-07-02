@@ -29,4 +29,30 @@ export class Empser {
     this.employee = this.employee.filter((emp) => emp.id !== id);
     console.log(this.employee);
   }
+
+  editIndex = -1;
+  editEmp(i: number) {
+    this.editIndex = i;
+    this.id = this.employee[i].id;
+    this.name = this.employee[i].name;
+    this.city = this.employee[i].city;
+  }
+
+  updateEmp() {
+    this.employee[this.editIndex].name = this.name;
+    this.employee[this.editIndex].id = this.id;
+    this.employee[this.editIndex].city = this.city;
+
+    this.editIndex = -1;
+    this.id = 0;
+    this.name = '';
+    this.city = '';
+  }
+
+  cancleEdit() {
+    this.editIndex = -1;
+    this.id = 0;
+    this.name = '';
+    this.city = '';
+  }
 }

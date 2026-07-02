@@ -17,11 +17,12 @@
         <td>City</td>
         <td>Delete</td>
       </tr>
-      <tr *ngFor="let e of empser.employee | search: st">
+      <tr *ngFor="let e of empser.employee | search: st; let i = index">
         <td>{{ e.name | uppercase }}</td>
         <td>{{ e.id }}</td>
         <td>{{ e.city | uppercase }}</td>
         <td (click)="empser.removeEmp(e.id)">Delete</td>
+        <td (click)="empser.editEmp(i)"><button>Edit</button></td>
       </tr>
     </table>
 
@@ -29,7 +30,11 @@
     <input type="text" [(ngModel)]="empser.city" /> Id :
     <input type="number" [(ngModel)]="empser.id" />
 
-    <button (click)="empser.addEmp()">Add Employee</button>
+    <button (click)="empser.addEmp()" *ngIf="empser.editIndex === -1">Add Employee</button>
+
+    <button (click)="empser.updateEmp()" *ngIf="empser.editIndex !== -1">Update Employee</button>
+
+    <button (click)="empser.cancleEdit()" *ngIf="empser.editIndex !== -1">Cancle Edit</button>
   </body>
 </html>
 
